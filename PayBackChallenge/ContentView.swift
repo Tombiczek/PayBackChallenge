@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  PayBackChallenge
-//
-//  Created by Tomek Lewiński on 19/04/2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {

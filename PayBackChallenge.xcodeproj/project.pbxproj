@@ -22,7 +22,6 @@
 		409B2A9E2BD2B9C20099C40C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		409B2A9F2BD2B9DF0099C40C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		409B2AA42BD2BB980099C40C /* PBTransactions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
-		409B2AA52BD2BB980099C40C /* Challenge.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Challenge.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +38,6 @@
 		409B2A842BD2B8ED0099C40C = {
 			isa = PBXGroup;
 			children = (
-				409B2AA52BD2BB980099C40C /* Challenge.md */,
 				409B2A9F2BD2B9DF0099C40C /* .gitignore */,
 				409B2A9E2BD2B9C20099C40C /* README.md */,
 				409B2A8F2BD2B8ED0099C40C /* PayBackChallenge */,
