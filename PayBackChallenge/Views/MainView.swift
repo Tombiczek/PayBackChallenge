@@ -3,12 +3,12 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel = ViewModel()
-    @State private var showSortOptions = false
+    @State private var showFilterOptions = false
 
     var body: some View {
         NavigationView {
             VStack {
-                List(viewModel.items) { item in
+                List(viewModel.filteredItems) { item in
                     VStack {
                         ZStack {
                             HStack {
@@ -48,31 +48,29 @@ struct MainView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Sort") {
-                        showSortOptions = true
+                    Button {
+                        showFilterOptions = true
+                    } label: {
+                        Label("Filter", systemImage: viewModel.activeFilter != nil ? "line.horizontal.3.decrease.circle.fill" : "line.horizontal.3.decrease.circle")
                     }
                 }
             }
-            .actionSheet(isPresented: $showSortOptions) {
+            .actionSheet(isPresented: $showFilterOptions) {
                 ActionSheet(
-                    title: Text("Sort Items"),
+                    title: Text("Filter Options"),
                     buttons: [
-                        .default(Text("None")) { sortItems(.none) },
-                        .default(Text("Date Ascending")) { sortItems(.dateAscending) },
-                        .default(Text("Date Descending")) { sortItems(.dateDescending) },
+                        .default(Text("Category 1")) { viewModel.applyFilter(for: 1)},
+                        .default(Text("Category 2")) { viewModel.applyFilter(for: 2)},
+                        .default(Text("Reset Filter")) {viewModel.resetFilter()},
                         .cancel()
                     ]
                 )
             }
-
             .navigationTitle("World of PayBack")
             .refreshable {
                 viewModel.loadJson()
             }
         }
-    }
-    private func sortItems(_ option: SortOptions) {
-        viewModel.items = Helper.sortItems(items: viewModel.items, for: option)
     }
 }
 
