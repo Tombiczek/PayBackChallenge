@@ -12,8 +12,8 @@
 		409B2A952BD2B8EF0099C40C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409B2A942BD2B8EF0099C40C /* Assets.xcassets */; };
 		409B2A982BD2B8EF0099C40C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409B2A972BD2B8EF0099C40C /* Preview Assets.xcassets */; };
 		409B2AA62BD2BD1C0099C40C /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 409B2AA42BD2BB980099C40C /* PBTransactions.json */; };
-		409B2AA92BD2BE380099C40C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AA82BD2BE380099C40C /* MainView.swift */; };
-		409B2AAB2BD2BE440099C40C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAA2BD2BE440099C40C /* DetailView.swift */; };
+		409B2AA92BD2BE380099C40C /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AA82BD2BE380099C40C /* TransactionListView.swift */; };
+		409B2AAB2BD2BE440099C40C /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */; };
 		409B2AAE2BD2BFFC0099C40C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAD2BD2BFFC0099C40C /* Helper.swift */; };
 		409B2AB02BD2C0260099C40C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAF2BD2C0260099C40C /* DataModel.swift */; };
 		409B2AB22BD2D0AF0099C40C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AB12BD2D0AF0099C40C /* ViewModel.swift */; };
@@ -28,8 +28,8 @@
 		409B2A9E2BD2B9C20099C40C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		409B2A9F2BD2B9DF0099C40C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		409B2AA42BD2BB980099C40C /* PBTransactions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
-		409B2AA82BD2BE380099C40C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		409B2AAA2BD2BE440099C40C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		409B2AA82BD2BE380099C40C /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
+		409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 		409B2AAD2BD2BFFC0099C40C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		409B2AAF2BD2C0260099C40C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		409B2AB12BD2D0AF0099C40C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 		409B2AA72BD2BE280099C40C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				409B2AA82BD2BE380099C40C /* MainView.swift */,
-				409B2AAA2BD2BE440099C40C /* DetailView.swift */,
+				409B2AA82BD2BE380099C40C /* TransactionListView.swift */,
+				409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,8 +178,8 @@
 			files = (
 				409B2A932BD2B8ED0099C40C /* ContentView.swift in Sources */,
 				409B2AAE2BD2BFFC0099C40C /* Helper.swift in Sources */,
-				409B2AAB2BD2BE440099C40C /* DetailView.swift in Sources */,
-				409B2AA92BD2BE380099C40C /* MainView.swift in Sources */,
+				409B2AAB2BD2BE440099C40C /* TransactionDetailView.swift in Sources */,
+				409B2AA92BD2BE380099C40C /* TransactionListView.swift in Sources */,
 				409B2A912BD2B8ED0099C40C /* PayBackChallengeApp.swift in Sources */,
 				409B2AB02BD2C0260099C40C /* DataModel.swift in Sources */,
 				409B2AB22BD2D0AF0099C40C /* ViewModel.swift in Sources */,

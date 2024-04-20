@@ -7,22 +7,24 @@ class ViewModel: ObservableObject {
     @Published var activeFilter: Int? = nil
     
     
-    init() {
-        loadJson()
+    @MainActor func loadJson() async {
+        items = await loadJson(filename: "PBTransactions") ?? []
         filteredItems = items
     }
     
-    func loadJson() {
-        items = loadJson(filename: "PBTransactions") ?? []
-    }
-    
-    private func loadJson(filename fileName: String) -> [Item]? {
+    private func loadJson(filename fileName: String) async -> [Item]? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         func dateFromString(_ dateString: String) -> Date {
             return dateFormatter.date(from: dateString) ?? Date()
         }
+        
+        if Int.random(in: 1...10) < 2 {
+            print("Error fetching data")
+            return nil
+        }
+        
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
