@@ -12,7 +12,7 @@ class ViewModel: ObservableObject {
         filteredItems = items
     }
     
-    private func loadJson(filename fileName: String) async -> [Item]? {
+    @MainActor private func loadJson(filename fileName: String) async -> [Item]? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
@@ -21,6 +21,7 @@ class ViewModel: ObservableObject {
         }
         
         if Int.random(in: 1...10) < 2 {
+            activeFilter = nil
             print("Error fetching data")
             return nil
         }
@@ -48,5 +49,13 @@ class ViewModel: ObservableObject {
     func resetFilter() {
         activeFilter = nil
         filteredItems = items
+    }
+    
+    func sumHelper() -> Int {
+        var sum = 0
+        for item in filteredItems {
+            sum += item.transactionDetail.value.amount
+        }
+        return sum
     }
 }
