@@ -13,10 +13,10 @@
 		409B2A982BD2B8EF0099C40C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409B2A972BD2B8EF0099C40C /* Preview Assets.xcassets */; };
 		409B2AA62BD2BD1C0099C40C /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 409B2AA42BD2BB980099C40C /* PBTransactions.json */; };
 		409B2AA92BD2BE380099C40C /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AA82BD2BE380099C40C /* TransactionListView.swift */; };
-		409B2AAB2BD2BE440099C40C /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */; };
 		409B2AAE2BD2BFFC0099C40C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAD2BD2BFFC0099C40C /* Helper.swift */; };
 		409B2AB02BD2C0260099C40C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAF2BD2C0260099C40C /* DataModel.swift */; };
 		409B2AB22BD2D0AF0099C40C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AB12BD2D0AF0099C40C /* ViewModel.swift */; };
+		409B2AB72BD443770099C40C /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,8 +178,8 @@
 			files = (
 				409B2A932BD2B8ED0099C40C /* ContentView.swift in Sources */,
 				409B2AAE2BD2BFFC0099C40C /* Helper.swift in Sources */,
-				409B2AAB2BD2BE440099C40C /* TransactionDetailView.swift in Sources */,
 				409B2AA92BD2BE380099C40C /* TransactionListView.swift in Sources */,
+				409B2AB72BD443770099C40C /* TransactionDetailView.swift in Sources */,
 				409B2A912BD2B8ED0099C40C /* PayBackChallengeApp.swift in Sources */,
 				409B2AB02BD2C0260099C40C /* DataModel.swift in Sources */,
 				409B2AB22BD2D0AF0099C40C /* ViewModel.swift in Sources */,

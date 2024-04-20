@@ -45,7 +45,10 @@ struct TransactionListView: View {
                                     }
                                     .padding(.horizontal, 5)
                                 }
-                                NavigationLink(destination: TransactionDetailView(), label: {EmptyView()}).opacity(0)
+                                NavigationLink(destination: TransactionDetailView(
+                                    partnerDisplayName: item.partnerDisplayName,
+                                    description: item.transactionDetail.description ?? ""
+                                ), label: {EmptyView()}).opacity(0)
                             }
                         }
                     }
@@ -94,4 +97,5 @@ struct TransactionListView: View {
 
 #Preview {
     TransactionListView()
+        .environmentObject(ViewModel())
 }
