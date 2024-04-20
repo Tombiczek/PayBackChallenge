@@ -17,6 +17,8 @@
 		409B2AB02BD2C0260099C40C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAF2BD2C0260099C40C /* DataModel.swift */; };
 		409B2AB22BD2D0AF0099C40C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AB12BD2D0AF0099C40C /* ViewModel.swift */; };
 		409B2AB72BD443770099C40C /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */; };
+		409B2AB92BD44C910099C40C /* ErrorViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2AB82BD44C910099C40C /* ErrorViews.swift */; };
+		409B2ABB2BD450010099C40C /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B2ABA2BD450010099C40C /* NetworkStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		409B2AAD2BD2BFFC0099C40C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		409B2AAF2BD2C0260099C40C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		409B2AB12BD2D0AF0099C40C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		409B2AB82BD44C910099C40C /* ErrorViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViews.swift; sourceTree = "<group>"; };
+		409B2ABA2BD450010099C40C /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 			children = (
 				409B2AA82BD2BE380099C40C /* TransactionListView.swift */,
 				409B2AAA2BD2BE440099C40C /* TransactionDetailView.swift */,
+				409B2AB82BD44C910099C40C /* ErrorViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				409B2AAD2BD2BFFC0099C40C /* Helper.swift */,
 				409B2AAF2BD2C0260099C40C /* DataModel.swift */,
 				409B2AB12BD2D0AF0099C40C /* ViewModel.swift */,
+				409B2ABA2BD450010099C40C /* NetworkStatus.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -176,10 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409B2AB92BD44C910099C40C /* ErrorViews.swift in Sources */,
 				409B2A932BD2B8ED0099C40C /* ContentView.swift in Sources */,
 				409B2AAE2BD2BFFC0099C40C /* Helper.swift in Sources */,
 				409B2AA92BD2BE380099C40C /* TransactionListView.swift in Sources */,
 				409B2AB72BD443770099C40C /* TransactionDetailView.swift in Sources */,
+				409B2ABB2BD450010099C40C /* NetworkStatus.swift in Sources */,
 				409B2A912BD2B8ED0099C40C /* PayBackChallengeApp.swift in Sources */,
 				409B2AB02BD2C0260099C40C /* DataModel.swift in Sources */,
 				409B2AB22BD2D0AF0099C40C /* ViewModel.swift in Sources */,

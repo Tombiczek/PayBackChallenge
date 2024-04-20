@@ -6,6 +6,8 @@ struct TransactionListView: View {
     @State private var showFilterOptions = false
     @State private var isLoading = false
     @State private var ifFailed = false
+    let network = NetworkStatus()
+    
     
     var body: some View {
         NavigationView {
@@ -13,6 +15,17 @@ struct TransactionListView: View {
                 if isLoading {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
+                } else if !network.getNetworkState() {
+                    GeometryReader { geometry in
+                        ScrollView {
+                            VStack {
+                            Spacer()
+                            NoNetworkView()
+                            Spacer()
+                            }
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        }
+                    }
                 } else {
                     List(viewModel.filteredItems) { item in
                         VStack {
@@ -54,7 +67,7 @@ struct TransactionListView: View {
                     }
                     .listRowSpacing(10)
                     .environment(\.defaultMinListRowHeight, 90)
-                    .background(viewModel.filteredItems.isEmpty ? Text("No network") : nil)
+                    .background(viewModel.filteredItems.isEmpty ? ErrorLoadingView() : nil)
                 }
             }
             .toolbar {
