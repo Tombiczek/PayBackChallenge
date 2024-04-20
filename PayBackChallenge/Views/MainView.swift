@@ -3,6 +3,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel = ViewModel()
+    @State private var showSortOptions = false
 
     var body: some View {
         NavigationView {
@@ -18,7 +19,7 @@ struct MainView: View {
                                         Text(item.partnerDisplayName)
                                             .font(.title2)
                                             .fontWeight(.bold)
-                                        if ((item.transactionDetail.description?.isEmpty) != nil) {
+                                        if (item.transactionDetail.description != nil) {
                                             Text(item.transactionDetail.description ?? "")
                                                 .font(.footnote)
                                         }
@@ -45,11 +46,33 @@ struct MainView: View {
                 .listRowSpacing(10)
                 .environment(\.defaultMinListRowHeight, 90)
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Sort") {
+                        showSortOptions = true
+                    }
+                }
+            }
+            .actionSheet(isPresented: $showSortOptions) {
+                ActionSheet(
+                    title: Text("Sort Items"),
+                    buttons: [
+                        .default(Text("None")) { sortItems(.none) },
+                        .default(Text("Date Ascending")) { sortItems(.dateAscending) },
+                        .default(Text("Date Descending")) { sortItems(.dateDescending) },
+                        .cancel()
+                    ]
+                )
+            }
+
             .navigationTitle("World of PayBack")
             .refreshable {
                 viewModel.loadJson()
             }
         }
+    }
+    private func sortItems(_ option: SortOptions) {
+        viewModel.items = Helper.sortItems(items: viewModel.items, for: option)
     }
 }
 
