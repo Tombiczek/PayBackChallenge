@@ -20,7 +20,7 @@ class ViewModel: ObservableObject {
             return dateFormatter.date(from: dateString) ?? Date()
         }
         
-        if Int.random(in: 1...10) < 2 {
+        if Int.random(in: 1...10) == 5 {
             activeFilter = nil
             print("Error fetching data")
             return nil
@@ -41,9 +41,13 @@ class ViewModel: ObservableObject {
         return nil
     }
     
-    func applyFilter(for category: Int) {
-        activeFilter = category
-        filteredItems = items.filter {$0.category == category}
+    func applyFilter(for category: Int?) {
+        if category == nil {
+            resetFilter()
+        } else {
+            activeFilter = category
+            filteredItems = items.filter {$0.category == category}
+        }
     }
     
     func resetFilter() {

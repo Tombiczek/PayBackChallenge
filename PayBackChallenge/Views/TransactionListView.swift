@@ -128,16 +128,19 @@ struct TransactionListView: View {
             .navigationTitle("Transactions")
             .refreshable {
                 await viewModel.loadJson()
-                viewModel.activeFilter = nil
+                viewModel.applyFilter(for: viewModel.activeFilter)
             }
-//            .onAppear { // I know this is not the best solution
-//                Task {
-//                    isLoading = true
-//                    await viewModel.loadJson()
-//                    try? await Task.sleep(nanoseconds: 1_000_000_000)
-//                    isLoading = false
-//                }
-//            }
+            .onAppear {
+                Task {
+                    isLoading = true
+                    await viewModel.loadJson()
+                    viewModel.applyFilter(for: viewModel.activeFilter)
+                    try? await Task.sleep(nanoseconds: 1_000_000_000)
+                    isLoading = false
+                    // I think this is not the best solution as it will load the contents everytime the view appears which I think is not necessary
+                    // However I could not think right now of a better solution (maybe some kind of boolean which will allow it to load only once but I kind of don't like this idea)
+                }
+            }
         }
     }
 }
