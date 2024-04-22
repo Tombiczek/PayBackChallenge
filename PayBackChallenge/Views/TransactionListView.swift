@@ -75,12 +75,12 @@ struct TransactionListView: View {
                                         HStack {
                                             VStack {
                                                 Text(String(item.transactionDetail.value.amount))
-                                                    .font(String(item.transactionDetail.value.amount).count > 4 ? .title2 : .title) // Safety for when there is bigger amount of PBP
+                                                    .font(String(item.transactionDetail.value.amount).count > 4 ? .title2 : .title)
                                                     .fontWeight(.bold)
                                                 Text(item.transactionDetail.value.currency)
                                                     .font(.subheadline)
                                             } // VStack
-                                            .frame(width: 80, height: 80) // Has to be fixed size to keep the divider in one place
+                                            .frame(width: 80, height: 80)
                                         } // HStack
                                         .padding(.horizontal, 5)
                                     } // HStack
@@ -132,7 +132,7 @@ struct TransactionListView: View {
             .onAppear {
                 Task {
                     isLoading = true
-                    try? await Task.sleep(nanoseconds: 1_000_000_000) // This simulates the server response
+                    try? await Task.sleep(nanoseconds: 1_000_000_000)
                     isLoading = false
                 }
             }
