@@ -51,8 +51,8 @@ struct TransactionListView: View {
                                     .fontWeight(.bold)
                                     .foregroundStyle(.blue)
                                 Spacer()
-                            } // HStack
-                        } // VStack
+                            }
+                        }
                         ForEach(viewModel.filteredItems) { item in
                             VStack {
                                 ZStack {
@@ -68,8 +68,8 @@ struct TransactionListView: View {
                                                     Text(item.transactionDetail.description ?? "")
                                                         .font(.footnote)
                                                 }
-                                            } // VStack
-                                        } // HStack
+                                            }
+                                        }
                                         Spacer()
                                         Divider()
                                         HStack {
@@ -79,19 +79,19 @@ struct TransactionListView: View {
                                                     .fontWeight(.bold)
                                                 Text(item.transactionDetail.value.currency)
                                                     .font(.subheadline)
-                                            } // VStack
+                                            }
                                             .frame(width: 80, height: 80)
-                                        } // HStack
+                                        }
                                         .padding(.horizontal, 5)
-                                    } // HStack
+                                    }
                                     NavigationLink(destination: TransactionDetailView(
                                         partnerDisplayName: item.partnerDisplayName,
                                         description: item.transactionDetail.description ?? ""
                                     ), label: {EmptyView()}).opacity(0)
-                                } // ZStack
-                            } // VStack
-                        } // ForEach
-                    } // List
+                                }
+                            }
+                        }
+                    }
                     .listRowSpacing(10)
                 }
             }
