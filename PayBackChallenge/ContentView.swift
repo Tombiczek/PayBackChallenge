@@ -8,4 +8,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(ViewModel())
+        .environment(\.defaultMinListRowHeight, 90)
 }

@@ -2,26 +2,22 @@ import Foundation
 
 
 class ViewModel: ObservableObject {
-    @Published var items: [Item] = []
-    @Published var filteredItems: [Item] = []
+    @Published var items: [Items] = []
+    @Published var filteredItems: [Items] = []
     @Published var activeFilter: Int? = nil
     
     
-    @MainActor func loadJson() async {
-        items = await loadJson(filename: "PBTransactions") ?? []
+    init() {
+        loadJson()
+    }
+    
+    func loadJson() {
+        items = loadJson(filename: "PBTransactions") ?? []
         filteredItems = items
     }
     
-    @MainActor private func loadJson(filename fileName: String) async -> [Item]? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        func dateFromString(_ dateString: String) -> Date {
-            return dateFormatter.date(from: dateString) ?? Date()
-        }
-        
+    private func loadJson(filename fileName: String) -> [Items]? {
         if Int.random(in: 1...10) == 5 {
-            activeFilter = nil
             print("Error fetching data")
             return nil
         }
@@ -29,9 +25,8 @@ class ViewModel: ObservableObject {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let items = try decoder.decode([String: [Item]].self, from: data)
-                return items["items"]?.sorted(by: {
+                let jsonData = try JSONDecoder().decode(Transactions.self, from: data)
+                return jsonData.items.sorted(by: {
                            $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate
                        })
             } catch {

@@ -51,8 +51,8 @@ struct TransactionListView: View {
                                     .fontWeight(.bold)
                                     .foregroundStyle(.blue)
                                 Spacer()
-                            }
-                        }
+                            } // HStack
+                        } // VStack
                         ForEach(viewModel.filteredItems) { item in
                             VStack {
                                 ZStack {
@@ -68,32 +68,31 @@ struct TransactionListView: View {
                                                     Text(item.transactionDetail.description ?? "")
                                                         .font(.footnote)
                                                 }
-                                            }
-                                        }
+                                            } // VStack
+                                        } // HStack
                                         Spacer()
                                         Divider()
                                         HStack {
                                             VStack {
                                                 Text(String(item.transactionDetail.value.amount))
-                                                    .font(.title)
+                                                    .font(String(item.transactionDetail.value.amount).count > 4 ? .title2 : .title) // Safety for when there is bigger amount of PBP
                                                     .fontWeight(.bold)
                                                 Text(item.transactionDetail.value.currency)
                                                     .font(.subheadline)
-                                            }
-                                            .frame(minWidth: 80, maxWidth: 80, maxHeight: 90)
-                                        }
+                                            } // VStack
+                                            .frame(width: 80, height: 80) // Has to be fixed size to keep the divider in one place
+                                        } // HStack
                                         .padding(.horizontal, 5)
-                                    }
+                                    } // HStack
                                     NavigationLink(destination: TransactionDetailView(
                                         partnerDisplayName: item.partnerDisplayName,
                                         description: item.transactionDetail.description ?? ""
                                     ), label: {EmptyView()}).opacity(0)
-                                }
-                            }
-                        }
-                    }
+                                } // ZStack
+                            } // VStack
+                        } // ForEach
+                    } // List
                     .listRowSpacing(10)
-                    .environment(\.defaultMinListRowHeight, 90)
                 }
             }
             .toolbar {
@@ -127,18 +126,14 @@ struct TransactionListView: View {
             }
             .navigationTitle("Transactions")
             .refreshable {
-                await viewModel.loadJson()
+                viewModel.loadJson()
                 viewModel.applyFilter(for: viewModel.activeFilter)
             }
             .onAppear {
                 Task {
                     isLoading = true
-                    await viewModel.loadJson()
-                    viewModel.applyFilter(for: viewModel.activeFilter)
-                    try? await Task.sleep(nanoseconds: 1_000_000_000)
+                    try? await Task.sleep(nanoseconds: 1_000_000_000) // This simulates the server response
                     isLoading = false
-                    // I think this is not the best solution as it will load the contents everytime the view appears which I think is not necessary
-                    // However I could not think right now of a better solution (maybe some kind of boolean which will allow it to load only once but I kind of don't like this idea)
                 }
             }
         }
@@ -150,4 +145,5 @@ struct TransactionListView: View {
 #Preview {
     TransactionListView()
         .environmentObject(ViewModel())
+        .environment(\.defaultMinListRowHeight, 90)
 }

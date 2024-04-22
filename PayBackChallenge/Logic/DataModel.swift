@@ -1,25 +1,31 @@
 import Foundation
 
 
-struct Item: Codable, Identifiable {
+
+struct Transactions: Decodable {
+    let items: [Items]
+}
+
+struct Items: Decodable, Identifiable {
     var id: String {
         alias.reference
     }
+    
     let partnerDisplayName: String
     let alias: Alias
     let category: Int
     let transactionDetail: TransactionDetail
 
-    struct Alias: Codable {
+    struct Alias: Decodable {
         let reference: String
     }
 
-    struct TransactionDetail: Codable {
+    struct TransactionDetail: Decodable {
         let description: String?
         let bookingDate: String
         let value: Value
 
-        struct Value: Codable {
+        struct Value: Decodable {
             let amount: Int
             let currency: String
         }

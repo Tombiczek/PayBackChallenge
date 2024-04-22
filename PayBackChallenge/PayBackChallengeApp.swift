@@ -7,6 +7,8 @@ struct PayBackChallengeApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environment(\.defaultMinListRowHeight, 90)
         }
     }
 }
+   
